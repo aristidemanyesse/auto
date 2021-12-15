@@ -49,7 +49,7 @@ class Vehicule(BaseModel):
     transmission = models.ForeignKey(
         Transmission, on_delete=models.CASCADE, related_name="transmission_vehicule")
     boutique = models.ForeignKey(
-        Boutique, on_delete=models.CASCADE, related_name="boutique_piece")
+        Boutique, on_delete=models.CASCADE, related_name="boutique_vehicule")
     image1 = models.ImageField(
         max_length=255, upload_to="stockage/images/pieces/", default="", null=True, blank=True)
     image2 = models.ImageField(

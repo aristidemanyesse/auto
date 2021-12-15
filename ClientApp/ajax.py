@@ -3,7 +3,7 @@ from django.http.response import HttpResponse
 from django.shortcuts import render
 from django.urls import reverse
 from commandeApp.models import Commande
-from organisationApp.models import Employe
+from OrganisationApp.models import Employe
 from django.http import  JsonResponse
 from django.contrib.sessions.backends.db import SessionStore
 from comptabilityApp.models import CategoryOperation, Operation, ReglementCommande, TypeMouvement, Mouvement, ModePayement, CompteClient

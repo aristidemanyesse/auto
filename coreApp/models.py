@@ -37,8 +37,8 @@ class Etat(models.Model):
         return self.name
 
 
-class History(LogEntry, models.Model):
-    created_at = models.DateTimeField(auto_now_add=True)
+# class History(LogEntry, models.Model):
+#     created_at = models.DateTimeField(auto_now_add=True)
 
 class MyCodeException:
     ERROR = 401

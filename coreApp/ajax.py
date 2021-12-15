@@ -11,7 +11,7 @@ from ClientApp.forms import *
 from approvisionnementApp.forms import *
 from commandeApp.forms import *
 from livraisonApp.forms import *
-from organisationApp.forms import *
+from OrganisationApp.forms import *
 from productionApp.forms import *
 from comptabilityApp.forms import *
 from paramApp.forms import *

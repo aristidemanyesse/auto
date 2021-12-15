@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'CarApp',
     'ItemApp',
     'OrderApp',
+    'ClientApp',
+    'OrganisationApp',
     'ShopApp'
 ]
 

@@ -14,7 +14,7 @@ class Commande(BaseModel):
     avance         = models.FloatField(default = 0)
     taux_tva       = models.FloatField(default = 0)
     tva            = models.FloatField(default = 0)
-    employe        = models.ForeignKey("organisationApp.Employe", on_delete = models.CASCADE, related_name="employe_commande")
+    employe        = models.ForeignKey("OrganisationApp.Employe", on_delete = models.CASCADE, related_name="employe_commande")
     comment        = models.TextField(default="",  null = True, blank=True);
 
     datelivraison  = models.DateField(null = True, blank=True,)

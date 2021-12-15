@@ -17,7 +17,7 @@ class Command(BaseCommand):
         import ClientApp.bootstrap as app
         app.run()
 
-        import organisationApp.bootstrap as app
+        import OrganisationApp.bootstrap as app
         app.run()
 
         import productionApp.bootstrap as app
