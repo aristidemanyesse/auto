@@ -44,12 +44,13 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework",
 
+    'MasterApp',
     'coreApp',
     'CarApp',
     'ItemApp',
-    'OrderApp',
-    'ClientApp',
-    'OrganisationApp',
+    # 'OrderApp',
+    # 'ClientApp',
+    # 'OrganisationApp',
     'ShopApp'
 ]
 

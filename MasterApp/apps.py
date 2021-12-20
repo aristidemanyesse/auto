@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class OrganisationAppConfig(AppConfig):
+class MasterappConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'OrganisationApp'
+    name = 'MasterApp'

@@ -5,9 +5,6 @@ from django.shortcuts import get_object_or_404
 
 # Create your views here.
 from django.shortcuts import render
-from comptabilityApp.models import Mouvement
-from OrganisationApp.models import Agence, Employe
-from authApp.models import AccesAgence
 from productionApp.models import Brique, Ressource
 from clientApp.models import Client
 from django.contrib.auth import authenticate

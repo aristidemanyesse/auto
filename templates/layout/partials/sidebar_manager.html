@@ -1,0 +1,143 @@
+{% load static %}
+{% load myfilters %}
+{% load humanize %}
+
+
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <h1 class="logo-name text-center" style="font-size: 50px; letter-spacing: 5px; margin: 0% auto !important; padding: 0% !important;">BRICX</h1>
+            <li class="nav-header" style="padding: 15px 10px !important; background-color: orange">
+                <div class="dropdown profile-element">                        
+                    <div class="row">
+                        <div class="col-3">
+                            <img alt="image de profil" class="rounded-circle"  style="width: 35px; height: 35px" src="{% static request.user.employe.image %}"/>
+                        </div>
+                        <div class="col-9">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="block m-t-xs font-bold">{{ request.user.get_full_name }}</span>
+                                <span class="text-muted text-xs block">{{ request.societe.socialreason }}</span>
+                            </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a class="dropdown-item" href="{% url 'auth:locked' %}">Vérouiller la session</a></li>
+                                <li><a class="dropdown-item" href="#" id="btn-deconnexion" >Déconnexion</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="logo-element">
+                    BRICX
+                </div>
+            </li>
+
+            <ul class="nav metismenu" id="side-menu">
+                <li class="" id="dashboard_boutique">
+                    <a href="{% url 'boutique:dashboard_boutique' %}"><i class="fa fa-tachometer"></i> <span class="nav-label">Tableau de bord</span></a>
+                </li>
+                <li class="" id="clients">
+                    <a href="{% url 'boutique:clients:clients' %}"><i class="fa fa-users"></i> <span class="nav-label">Liste des clients</span></a>
+                </li>
+                <li style="margin: 3% auto"><hr class="mp0" style="background-color: #000; "></li>
+
+
+                <li class="" id="commandes">
+                    <a href="{% url 'boutique:commandes:commandes' %}"><i class="fa fa-handshake-o"></i> <span class="nav-label">Commandes de clients</span>
+                        {% if request.commandes|length > 0 %}
+                        <span class="label label-warning float-right">{{request.commandes|length|start0}}</span>
+                        {% endif %}
+                    </a>
+                </li>
+                <li class="" id="livraisons">
+                    <a href="{% url 'boutique:livraisons:livraisons' %}"><i class="fa fa-truck"></i> <span class="nav-label">Livraisons en cours</span> 
+                        {% if request.livraisons|length > 0 %}
+                        <span class="label label-warning float-right">{{request.livraisons|length|start0}}</span>
+                        {% endif %}
+                    </a>
+                </li>
+                <li class="" id="conversions">
+                    <a href="{% url 'boutique:commandes:conversions' %}"><i class="fa fa-refresh"></i> <span class="nav-label">Conversions de briques </span> </a>
+                </li>
+
+                <li class="" id="productions">
+                    <a href="{% url 'fabrique:production:productions' %}"><i class="fa fa-building-o"></i> <span class="nav-label">Les productions </span></a>
+                </li>
+                <li class="" id="achatstock">
+                    <a href="{% url 'fabrique:appros:achatstock' %}"><i class="fa fa-handshake-o"></i> <span class="nav-label">Achat de briques </span> 
+                        {% if request.achats|length > 0 %}
+                        <span class="label label-warning float-right">{{request.achats|length|start0}}</span>
+                        {% endif %}
+                    </a>
+                </li>
+                <li style="margin: 3% auto"><hr class="mp0" style="background-color: #000; "></li>
+                
+
+
+                <li class="" id="stock_brique">
+                    <a href="{% url 'boutique:production:stock_brique' %}"><i class="fa fa-cubes"></i> <span class="nav-label">Stock de briques</span></a>
+                </li>
+    
+
+                <li style="margin: 3% auto"><hr class="mp0" style="background-color: #000; "></li>
+                
+                
+  
+                <li class="" id="rapport_du_jour">
+                    <a href="{% url 'boutique:rapport_du_jour' request.now|date:'Y' request.now|date:'m' request.now|date:'d' %}"><i class="fa fa-calendar"></i> <span class="nav-label">Rapport du Jour</span></a>
+                </li>
+                <li class="" id="rapport_du_jour">
+                    <a href="{% url 'boutique:rapport_du_jour' request.now|date:'Y' request.now|date:'m' request.now|date:'d' %}"><i class="fa fa-calendar"></i> <span class="nav-label">Rapport du production</span></a>
+                </li>
+                <li class="" id="rapport_du_jour">
+                    <a href="{% url 'boutique:rapport_du_jour' request.now|date:'Y' request.now|date:'m' request.now|date:'d' %}"><i class="fa fa-calendar"></i> <span class="nav-label">Coût de producton</span></a>
+                </li>
+                <li style="margin: 3% auto"><hr class="mp0" style="background-color: #000; "></li>
+
+
+                <li >
+                    <a href="#"><i class="fa fa-trash"></i> <span class="nav-label">Les agences</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li id="perte_brique"><a href="{% url 'fabrique:production:perte_brique' %}">Perte de briques</a></li>
+                        <li id="perte_ressource"><a href="{% url 'fabrique:production:perte_ressource' %}">Perte de ressources</a></li>
+                    </ul>
+                </li>
+                <li >
+                    <a href="#"><i class="fa fa-trash"></i> <span class="nav-label">Les pertes</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li id="perte_brique"><a href="{% url 'fabrique:production:perte_brique' %}">Perte de briques</a></li>
+                        <li id="perte_ressource"><a href="{% url 'fabrique:production:perte_ressource' %}">Perte de ressources</a></li>
+                    </ul>
+                </li>
+                <li class="" id="tricycles">
+                    <a href="{% url 'boutique:livraisons:tricycles' %}"><i class="fa fa-bicycle"></i> <span class="nav-label">Payements tricycles</span> 
+                        {% if request.tricycles|length > 0 %}
+                        <span class="label label-warning float-right">{{request.tricycles|length|start0}}</span>
+                        {% endif %}
+                    </a>
+                </li>
+                <li class="" id="caisse">
+                    <a href="{% url 'boutique:caisse' %}"><i class="fa fa-money"></i> <span class="nav-label">Trésorerie générale</span></a>
+                </li>
+                
+                <li style="margin: 3% auto"><hr class="mp0" style="background-color: #000; "></li>
+            </ul>
+
+        </ul>
+
+    </div>
+</nav>
+
+<style type="text/css">
+li.dropdown-divider{
+   !important;
+}
+</style>
+
+
+
+
+<style type="text/css">
+li.dropdown-divider{
+   !important;
+}
+</style>
+
