@@ -1,5 +1,8 @@
 from django.contrib import admin
 from .models import *
-# Register your models here.
-admin.site.register(Etat)
-#admin.site.register(History)
+
+class BaseModelAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("name",)}
+    empty_value_display = '-'
+    date_hierarchy = 'created_at'
+

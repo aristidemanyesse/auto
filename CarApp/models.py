@@ -12,6 +12,13 @@ class Marque(BaseModel):
     name = models.CharField(max_length=255)
 
 
+class MarquePneu(BaseModel):
+    name = models.CharField(max_length=255)
+
+
+class MarqueBatterie(BaseModel):
+    name = models.CharField(max_length=255)
+
 class Modele(BaseModel):
     name = models.CharField(max_length=255)
     year = models.IntegerField(default=0)
@@ -26,6 +33,10 @@ class Energie(BaseModel):
     name = models.CharField(max_length=255)
 
 class TypeVehicule(BaseModel):
+    name = models.CharField(max_length=255)
+
+
+class TypeMoteur(BaseModel):
     name = models.CharField(max_length=255)
 
 

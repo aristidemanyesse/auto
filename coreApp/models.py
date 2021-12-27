@@ -11,6 +11,7 @@ from django.contrib.contenttypes.models import ContentType
 
 class BaseModel(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
+    slug = models.SlugField(max_length=255, null = True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
     deleted = models.BooleanField(default=False)

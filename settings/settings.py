@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'MasterApp',
     'coreApp',
     'CarApp',
-    'ItemApp',
+    'FournisseurApp',
     # 'OrderApp',
     # 'ClientApp',
     # 'OrganisationApp',
